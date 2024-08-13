@@ -1,6 +1,6 @@
 // import { useIntl } from 'react-intl' //TODO: Refactor this to i18n-react
 
-import { Button } from "@/ui-components/Buttons";
+import { Button } from "@/ui-components/Button";
 
 import { Modal } from "@/ui-components/Modal";
 import { useLogin } from "@/hooks/useLogin";

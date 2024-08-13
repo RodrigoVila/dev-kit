@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import "../src/index.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const preview: Preview = {
   parameters: {

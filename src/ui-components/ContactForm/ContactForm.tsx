@@ -2,7 +2,7 @@ import { ChangeEvent, SyntheticEvent, useState } from "react";
 // import emailjs from "@emailjs/browser";
 
 import { useToastNotifications } from "@/hooks/useToastNotifications";
-import { Button } from "@/ui-components/Buttons";
+import { Button } from "@/ui-components/Button";
 import { Input } from "@/ui-components/Input";
 import { SectionTitle, SectionWrapper } from "@/ui-components/Section";
 
@@ -77,7 +77,7 @@ export const ContactForm = () => {
       );
       console.error("Error sending email: ", error);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
@@ -86,13 +86,10 @@ export const ContactForm = () => {
   // }, [isContactFormLoading]);
 
   const inputStyle =
-    "mb-2 w-full rounded-md text-sm border-2 border-transparent bg-[rgba(255,255,255,0.2)] py-2 pl-2 placeholder:text-slate-300 placeholder:tracking-wider focus:border-white focus:outline-none";
+    "mb-2 w-full rounded-md text-sm border-2 border-transparent bg-[rgba(255,255,255,0.2)] text-white py-2 pl-2 placeholder:text-slate-300 placeholder:tracking-wider focus:border-white focus:outline-none";
   return (
-    <SectionWrapper
-      id="contact"
-      className="bg-[url('/hands-massage-studio-noord-amsterdam.jpeg')]"
-    >
-      <SectionTitle>Contact</SectionTitle>
+    <SectionWrapper id="contact" className="bg-[url('fantasy.webp')]">
+      <SectionTitle className="text-white">Contact</SectionTitle>
       <div className="flex flex-col w-full px-8 mt-8 md:w-2/3 md:px-0 lg:w-1/2 xl:w-2/5">
         <Input
           name="name"
@@ -127,8 +124,8 @@ export const ContactForm = () => {
         />
         <Button
           onClick={handleSubmit}
-          variant="transparent"
-          className="mt-4 font-semibold tracking-widest disabled:pointer-events-none disabled:opacity-30"
+          variant="outline"
+          className="mt-4 font-semibold tracking-widest hover:bg-white hover:opacity-80 hover:text-black border-gray-500"
           disabled={!isContactFormCompleted}
           isLoading={isLoading}
         >
