@@ -45,13 +45,13 @@ export const Modal = ({
         <BackgroundOverlay />
         <div
           className={twMerge(
-            "relative z-50 flex w-full max-w-md flex-col items-center justify-center overflow-hidden bg-white p-6 pt-10",
+            "relative z-50 flex w-full max-w-md flex-col items-center justify-center overflow-hidden bg-white rounded-lg p-6 pt-10",
             bodyClassName,
             fullScreenStyles
           )}
         >
           <CloseModalButton
-            color="black"
+            color="red"
             className="z-70 absolute right-2 top-2"
             onClose={onClose}
           />

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 
-type BackgroundOverlayProps = {
+export type BackgroundOverlayProps = {
   darker?: boolean;
   lighter?: boolean;
 };

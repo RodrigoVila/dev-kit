@@ -1,13 +1,15 @@
-import { SelectHTMLAttributes } from "react";
+import { OptionHTMLAttributes, SelectHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
+
+type Option = OptionHTMLAttributes<HTMLOptionElement>;
 
 type CustomDropDownProps = Omit<
   SelectHTMLAttributes<HTMLSelectElement>,
   "onChange" | "className"
 > & {
-  options: any; //TODO: Type this
+  options: Option[];
   className?: string;
-  onChange: (option: any /* TODO: Type this */) => void;
+  onChange: (option: Option) => void;
 };
 
 export const Dropdown = ({

@@ -1,28 +1,21 @@
-import { ChangeEvent } from 'react'
-import { useIntl } from 'react-intl'
+import { ChangeEvent } from "react";
 
-import { Input } from '@packages/input'
+import { Input } from "@/ui-components/Input";
 
 type LoginFormProps = {
-  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void
-}
+  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+};
 
 export const LoginForm = ({ onInputChange }: LoginFormProps) => {
-  const { formatMessage } = useIntl()
   return (
-    <form className='w-full rounded'>
+    <form className="w-full rounded">
+      <Input label="Email" name="email" type="text" onChange={onInputChange} />
       <Input
-        label={formatMessage({ id: 'EMAIL' })}
-        name='email'
-        type='text'
-        onChange={onInputChange}
-      />
-      <Input
-        label={formatMessage({ id: 'PASSWORD' })}
-        name='password'
-        type='password'
+        label="Password"
+        name="password"
+        type="password"
         onChange={onInputChange}
       />
     </form>
-  )
-}
+  );
+};

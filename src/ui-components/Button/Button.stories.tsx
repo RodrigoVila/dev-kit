@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { Button } from "./Button";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Button",
   component: Button,
@@ -39,9 +38,15 @@ export const WithLoadingState: Story = {
   },
 };
 
+export const WithIcon: Story = {
+  args: {
+    icon: <>🤖</>,
+  },
+};
+
 export const WithCustomClassNames: Story = {
   args: {
     className:
-      "px-16 bg-green-500 border-2 border-green-600 text-lg font-bold hover:text-green-500",
+      "py-1 bg-blue-500 border-2 border-blue-600 text-md font-bold hover:text-blue-500 rounded-full",
   },
 };

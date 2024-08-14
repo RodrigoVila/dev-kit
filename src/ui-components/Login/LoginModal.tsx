@@ -11,16 +11,18 @@ import {
   PasswordRecoveryForm,
   RegisterForm,
 } from "./components";
-import { useState } from "react";
 
-export const LoginModal = () => {
-  const [isOpen, setOpen] = useState(false);
+type LoginModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
 
+export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
   const { formType, setFormType, onInputChange, handleButtonClick } =
     useLogin();
 
   return (
-    <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <div className="relative flex w-full flex-col items-center justify-center rounded-md bg-white font-semibold text-black">
         {formType === "register" && (
           <RegisterForm onInputChange={onInputChange} />
@@ -31,34 +33,35 @@ export const LoginModal = () => {
         )}
 
         <div className="flex w-full flex-col items-center gap-4">
-          <Button isLoading={false} onClick={handleButtonClick}>
-            Button
-            {/* TODO: Refactor this to i18n */}
-            {/* {formType === "login"
-              ? formatMessage({ id: "LOGIN" })
+          <Button
+            variant="outline"
+            isLoading={false}
+            onClick={handleButtonClick}
+            className="w-full rounded-md"
+          >
+            {formType === "login"
+              ? "Login"
               : formType === "register"
-                ? formatMessage({ id: "USER_REGISTER" })
-                : formatMessage({ id: "PASSWORD_RECOVERY" })} */}
+                ? "Register"
+                : "Password Recovery"}
           </Button>
 
-          {formType !== "passwordRecovery" && <GoogleSignInButton />}
+          {formType === "login" && <GoogleSignInButton />}
 
-          {/* {(formType === "register" || formType === "passwordRecovery") && (
-            <button onClick={() => setFormType("login")}>
-              {formatMessage({ id: "GO_TO_LOGIN" })}
-            </button>
-          )} */}
+          {(formType === "register" || formType === "passwordRecovery") && (
+            <button onClick={() => setFormType("login")}>Go to login</button>
+          )}
 
-          {/* {formType === "login" && (
+          {formType === "login" && (
             <>
               <button onClick={() => setFormType("register")}>
-                {formatMessage({ id: "USER_REGISTER" })}
+                Register User
               </button>
               <button onClick={() => setFormType("passwordRecovery")}>
-                {formatMessage({ id: "PASSWORD_RECOVERY" })}
+                Password Recovery
               </button>
             </>
-          )} */}
+          )}
         </div>
       </div>
     </Modal>

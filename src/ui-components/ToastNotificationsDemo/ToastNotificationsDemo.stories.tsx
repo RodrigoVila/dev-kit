@@ -2,9 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ToastContainer } from "react-toastify";
 import { ToastNotificationsDemo } from "./ToastNotificationsDemo";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Toast Notifications Demo",
+  title: "Toast Notifications",
   component: ToastNotificationsDemo,
   decorators: [
     (Story) => (

@@ -1,19 +1,24 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import { Effect, LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
-type LazyImageProps = {
-  alt: string
-  height: string
-  src: string
-  width: string
-  caption?: string
-}
+export type LazyImageProps = {
+  alt: string;
+  height: string;
+  src: string;
+  width: string;
+  caption?: string;
+  effect?: Effect;
+};
 
-export const LazyImage = ({ alt, height, src, width, caption }: LazyImageProps) => {
+export const LazyImage = ({
+  caption,
+  effect = "blur",
+  ...rest
+}: LazyImageProps) => {
   return (
     <div>
-      <LazyLoadImage alt={alt} height={height} src={src} width={width} effect='blur' />
+      <LazyLoadImage effect={effect} {...rest} />
       {caption ? <span>{caption}</span> : null}
     </div>
-  )
-}
+  );
+};

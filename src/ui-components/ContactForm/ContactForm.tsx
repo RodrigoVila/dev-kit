@@ -5,6 +5,7 @@ import { useToastNotifications } from "@/hooks/useToastNotifications";
 import { Button } from "@/ui-components/Button";
 import { Input } from "@/ui-components/Input";
 import { SectionTitle, SectionWrapper } from "@/ui-components/Section";
+import { twMerge } from "tailwind-merge";
 
 const INITIAL_STATE = {
   name: "",
@@ -118,14 +119,17 @@ export const ContactForm = () => {
           placeholder="Write a message"
           rows={5}
           maxLength={250}
-          className={`${inputStyle} resize-none xl:text-lg`}
+          className={twMerge(inputStyle, "resize-none xl:text-lg")}
           value={contactForm.message}
           onChange={handleChange}
         />
         <Button
           onClick={handleSubmit}
           variant="outline"
-          className="mt-4 font-semibold tracking-widest hover:bg-white hover:opacity-80 hover:text-black border-gray-500"
+          className={twMerge(
+            inputStyle,
+            "disabled:pointer-events-none disabled:bg-gray-500 disabled:text-gray-400 hover:bg-white hover:text-black rounded-none"
+          )}
           disabled={!isContactFormCompleted}
           isLoading={isLoading}
         >
